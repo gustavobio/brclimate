@@ -2,11 +2,13 @@
 #'
 #' @param states A character vector with abbreviated Brazilian states names or "all" for all PCDs.
 #' @return A data frame.
+#' @export
+#' @import rvest
 get_pcds <- function(states = "all") {
-  calendar_page <- html_session("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/index.php")
+  calendar_page <- rvest::html_session("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/index.php")
   stations <- calendar_page %>%
-    html_nodes(xpath = "//form//option") %>%
-    html_text()
+    rvest::html_nodes(xpath = "//form//option") %>%
+    rvest::html_text()
   stations <- strsplit(stations, "\\-")
   stations <- lapply(stations, function(x) c(x[1:2], paste(x[-c(1:2)], collapse = "-")))
   stations <- do.call(rbind.data.frame, stations)

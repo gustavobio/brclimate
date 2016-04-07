@@ -10,3 +10,7 @@ scraping data from INPE (http: //sinda.crn2.inpe.br/PCD/SITE/novo/site/
 License: GPL
 LazyData: TRUE
 RoxygenNote: 5.0.1
+Imports: rvest,
+    httr,
+    tidyr,
+    dplyr
