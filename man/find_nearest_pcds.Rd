@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_nearest_pcds.R
 \name{find_nearest_pcds}
 \alias{find_nearest_pcds}
-\title{Order climate stations (PCDs) by their distances from a given coordinate.}
+\title{Order climate stations (PCDs) by their distances in kilometers from a given coordinate.}
 \usage{
 find_nearest_pcds(lat = -22.410259, long = -47.560156)
 }
@@ -15,6 +15,6 @@ find_nearest_pcds(lat = -22.410259, long = -47.560156)
 A data frame ordered by the distances to the PCDs.
 }
 \description{
-Order climate stations (PCDs) by their distances from a given coordinate.
+Order climate stations (PCDs) by their distances in kilometers from a given coordinate.
 }
 
