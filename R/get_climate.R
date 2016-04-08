@@ -1,15 +1,17 @@
-#' Scrape (harvest from the web) historical climate data.
+#' Scrape (harvest from the web) climate data from stations in Brazil.
 #'
 #' @param station_id A numeric vector with the station id
 #' @param start_date Start date
 #' @param end_date End date (Maximum of one year between start and end dates)
-#' @return A list with a data frame containing the climate data and a vector indicating the name of the fields and their units.
+#' @return A data frame containing the climate data and attributes.
 #' @export
 get_climate <- function(station_id = 31973, start_date = "2005/01/01", end_date  = "2005/02/02") {
   start_date <- as.Date(start_date)
   end_date <- as.Date(end_date)
   if ((end_date - start_date) > 365) stop("The maximum interval is 365 days.")
-  calendar_page <- rvest::html_session(paste("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = ""))
+  calendar_page <- rvest::html_session(
+    paste("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = "")
+    )
   form <- calendar_page %>% rvest::html_node("form") %>% html_form()
   form_completed <- rvest::set_values(form,
                                dia_inicial = format(start_date, "%d"),
@@ -38,5 +40,5 @@ get_climate <- function(station_id = 31973, start_date = "2005/01/01", end_date 
   climate <- data.frame(matrix(processed_page[c(indexes)], ncol = n_fields))
   names(climate) <- gsub("\\s*\\(.*\\)", "", fields)
   climate <- tidyr::separate(climate, DataHora, c("Data", "Hora"), sep = " ")
-  return(list(climate = climate, fields = fields))
+  structure(climate, fields = fields)
 }
