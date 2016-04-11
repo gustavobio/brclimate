@@ -84,4 +84,5 @@ get_climate(station_id = 31973, start_date = "2005/01/01", end_date  = "2007/02/
 247       0      76         1.6         6.2
 ```
 
+## Locations of all stations:
 ![Locations of all stations](http://i.imgur.com/1SFHCO7.png)
