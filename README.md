@@ -45,7 +45,7 @@ find_nearest_pcds(lat = -22.41, long = -42.01)
 ...
 ```
 
-Find the span of the dataset (station specific:
+Find the span of the dataset (station specific):
 ```coffee
 get_timeframe(station_id = 31973)
        start          end 
