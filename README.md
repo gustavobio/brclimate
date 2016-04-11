@@ -16,6 +16,13 @@ get_pcds()
 5 32106    AC Fazenda Santo Afonso
 6 32083    AC                Feijo
 ...
+        ID state                 locality
+997  30870    TO        Rio Santo Antonio
+998  30873    TO         Rio Sao Martinho
+999  30869    TO                Rio Urubu
+1000 32307    TO           Tocantinopolis
+1001 32549    TO UHE Isamu Ikeda Montante
+1002 32619    TO                  Xambioa
 ```
 
 Get the coordinates of a given station:
