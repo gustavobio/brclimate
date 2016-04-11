@@ -6,10 +6,11 @@
 #' @return A data frame containing the climate data and attributes.
 #' @export
 get_climate <- function(station_id = 31973, start_date = "2005/01/01", end_date  = "2005/02/02") {
-  if (!station_id %in% pcds$ID) stop("Couldn't match any station with the provided ID.")
+  if (!station_id %in% pcds$ID) stop("Couldn't find any station with the provided ID.")
   start_date <- as.Date(start_date)
   end_date <- as.Date(end_date)
-  station_timeframe <- get_timeframe(station_id = station_id)
+  station_timeframe <- get_date_range(station_id = station_id)
+  if (start_date > end_date) {stop("Impossible dates.")} # Better this.
   if (start_date < station_timeframe["start"] | start_date > station_timeframe["end"]) {
     message(paste("No data for the provided start date. Beginning to query from ", station_timeframe["start"], "."))
     start_date <- station_timeframe["start"]
@@ -45,7 +46,7 @@ get_climate <- function(station_id = 31973, start_date = "2005/01/01", end_date 
     )
     r <- rvest::submit_form(calendar_page, form_completed)
     if (httr::headers(r)$`content-type` != "application/x-msexcel") {
-      message("No data for the selected period")
+      message("No data for the selected period.")
       return(NA)
     }
     temp_file <- tempfile()
@@ -66,6 +67,7 @@ get_climate <- function(station_id = 31973, start_date = "2005/01/01", end_date 
   }
   print(start_dates)
   print(end_dates)
-  climate <- do.call(rbind.data.frame, mapply(get_partial_climate, start_date = start_dates, end_date = end_dates, SIMPLIFY = FALSE))
+  climate <- do.call(rbind.data.frame,
+                     mapply(get_partial_climate, start_date = start_dates, end_date = end_dates, SIMPLIFY = FALSE))
   climate[order(climate$Data, climate$Hora, decreasing = FALSE), ]
 }

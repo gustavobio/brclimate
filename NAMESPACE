@@ -3,7 +3,7 @@
 export(find_nearest_pcds)
 export(get_climate)
 export(get_coordinates)
+export(get_date_range)
 export(get_distances)
 export(get_pcds)
-export(get_timeframe)
 import(rvest)

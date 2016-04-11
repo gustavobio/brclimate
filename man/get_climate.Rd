@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_climate.R
 \name{get_climate}
 \alias{get_climate}
-\title{Scrape (harvest from the web) historical climate data.}
+\title{Scrape (harvest from the web) climate data from stations in Brazil.}
 \usage{
 get_climate(station_id = 31973, start_date = "2005/01/01",
   end_date = "2005/02/02")
@@ -15,9 +15,9 @@ get_climate(station_id = 31973, start_date = "2005/01/01",
 \item{end_date}{End date (Maximum of one year between start and end dates)}
 }
 \value{
-A list with a data frame containing the climate data and a vector indicating the name of the fields and their units.
+A data frame containing the climate data and attributes.
 }
 \description{
-Scrape (harvest from the web) historical climate data.
+Scrape (harvest from the web) climate data from stations in Brazil.
 }
 
