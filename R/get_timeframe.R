@@ -11,6 +11,5 @@ get_timeframe <- function(station_id = 31973) {
     message("Station not found")
     return(NA)
   }
-  names(dates) <- c("start", "end")
-  as.Date(dates)
+  setNames(as.Date(dates), c("start", "end"))
 }
