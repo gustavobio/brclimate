@@ -14,3 +14,4 @@ Imports: rvest,
     httr,
     tidyr,
     dplyr
+Depends: R (>= 3.2.4)
