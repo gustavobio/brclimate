@@ -3,7 +3,7 @@ Scrape Brazilian climate data
 
 This package includes a set of tools for scraping climate data from INPE: http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php
 
-## Installation:
+## Installation (you will need R >= 3.2.4 and Rtools):
 ```coffee
 install.packages("devtools")
 devtools::install_github("gustavobio/brclimate")
