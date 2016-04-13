@@ -1,7 +1,7 @@
 # brclimate
 Scrape Brazilian climate data
 
-This package includes a set of tools for scraping climate data from INPE: http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php
+This package includes a set of tools for scraping climate data from INPE http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php and INMET http://www.inmet.gov.br/portal/
 
 ## Installation (you will need R >= 3.2.4 and Rtools):
 ```coffee
@@ -86,3 +86,7 @@ get_climate(station_id = 31973, start_date = "2005/01/01", end_date  = "2007/02/
 
 ## Locations of all stations:
 ![Locations of all stations](http://i.imgur.com/1SFHCO7.png)
+
+# INMET
+
+See `get_inmet_data()` and `get_inmet_stations()`. You will have to create an user at http://www.inmet.gov.br/portal/ before using these functions.
