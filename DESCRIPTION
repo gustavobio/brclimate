@@ -6,7 +6,7 @@ Authors@R: person("Gustavo", "Carvalho", email = "gustavo.bio@gmail.com", role =
 Description: Get historical climate data from over 1000 climate stations located
     in Brazil. The package include a set of tools for
 scraping data from INPE (http: //sinda.crn2.inpe.br/PCD/SITE/novo/site/
-    index.php).
+    index.php) and INMET (http://www.inmet.gov.br/portal/)
 License: GPL
 LazyData: TRUE
 RoxygenNote: 5.0.1
