@@ -7,7 +7,7 @@
 #' @param username INMET username
 #' @param password INMET password
 #' @export
-get_inmet_data <- function(station_id = 83726, start_date = "01/01/1901", end_date = "13/04/2016", monthly = TRUE, username, password) {
+inmet_station_data <- function(station_id = 83726, start_date = "01/01/1901", end_date = "13/04/2016", interval = "monthly", username, password) {
   auth_page <- rvest::html_session(
     "http://www.inmet.gov.br/projetos/rede/pesquisa/inicio.php"
   )
@@ -18,7 +18,8 @@ get_inmet_data <- function(station_id = 83726, start_date = "01/01/1901", end_da
                                  )
   session <- rvest::submit_form(auth_page, filled_auth_form)
   base_url <- "http://www.inmet.gov.br/projetos/rede/pesquisa/"
-  if (monthly) {
+  interval <- match.arg(interval, c("monthly", "daily"))
+  if (interval == "monthly") {
     method <- "gera_serie_txt_mensal.php?"
     query_string <- paste("mRelEstacao=",
                           station_id,
@@ -53,7 +54,7 @@ get_inmet_data <- function(station_id = 83726, start_date = "01/01/1901", end_da
             lat = lat, long = long, station_name = station_name)
 }
 
-get_inmet_stations <- function(username, password) {
+inmet_stations <- function(username, password) {
   auth_page <- rvest::html_session(
     "http://www.inmet.gov.br/projetos/rede/pesquisa/inicio.php"
   )

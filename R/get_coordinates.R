@@ -3,7 +3,7 @@
 #' @param station_id A numeric vector with the station id
 #' @return A named numeric vector
 #' @export
-get_coordinates <- function(station_id = 31973) {
+inpe_station_coordinates <- function(station_id = 31973) {
   calendar_page <- rvest::html_session(paste("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = ""))
   source_code <- httr::content(calendar_page$response, as = "text")
   matches <- regexec("Latitude\\:.*Longitude\\:.*\\, Altitude", source_code)
