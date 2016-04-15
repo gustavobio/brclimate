@@ -60,9 +60,10 @@ get_climate <- function(station_id = 31973, start_date = "2005/01/01", end_date 
       rvest::html_text()
     n_fields <- length(fields)
     indexes <- mapply(seq, (n_fields + 1):(n_fields * 2), length(processed_page), by = n_fields)
-    climate <- data.frame(matrix(processed_page[c(indexes)], ncol = n_fields))
+    climate <- data.frame(matrix(processed_page[c(indexes)], ncol = n_fields), stringsAsFactors = FALSE)
     names(climate) <- gsub("\\s*\\(.*\\)", "", fields)
     climate <- tidyr::separate(climate, DataHora, c("Data", "Hora"), sep = " ")
+    climate <- do.call(cbind.data.frame, list(lapply(climate, type.convert, as.is = TRUE), stringsAsFactors = FALSE))
     structure(climate, fields = fields)
   }
   print(start_dates)
