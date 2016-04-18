@@ -1,4 +1,4 @@
-#' Order climate stations (PCDs) by their distances in kilometers from a given coordinate.
+#' Order INPE climate stations by their distances in kilometers from a given coordinate.
 #'
 #' @param lat Latitude in decimals
 #' @param long Longitude in decimals

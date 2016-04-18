@@ -1,4 +1,4 @@
-#' Scrape (harvest from the web) climate data from stations in Brazil.
+#' Get climate data from stations INPE
 #'
 #' @param station_id A numeric vector with the station id
 #' @param start_date Start date
@@ -28,7 +28,6 @@ inpe_station_data <- function(station_id = 31973, start_date = "2005/01/01", end
     start_dates <- start_date
     end_dates <- end_date
   }
-
   # The website only accepts queries < 365 days, so I have to split the timeframe in
   # 12 month intervals when needed.
   get_partial_climate <- function(start_date, end_date) {
