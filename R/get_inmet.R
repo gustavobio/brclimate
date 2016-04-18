@@ -3,7 +3,7 @@
 #' @param station_id The ID of the station
 #' @param start_date Start date
 #' @param end_date End date
-#' @param monthly Daily or Monthy data?
+#' @param intervale daily or monthy (default) data?
 #' @param username INMET username
 #' @param password INMET password
 #' @export
@@ -38,7 +38,6 @@ inmet_station_data <- function(station_id = 83726, start_date = "01/01/1901", en
                           end_date,
                           "&mAtributos=,,1,1,,,,,,1,1,,1,1,1,1,", sep = "")
   }
-  print(paste(base_url, method, query_string, sep = ""))
   col_classes <- c(rep(NA, 11), "NULL")
   col_classes[3] <- "character"
   response <- session %>%
