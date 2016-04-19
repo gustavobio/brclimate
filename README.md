@@ -1,10 +1,11 @@
 # brclimate
-Scrape Brazilian climate data from INPE and INMET.
 
 This R package includes a set of tools for scraping climate data from INPE http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php and INMET http://www.inmet.gov.br/portal/.
 
-## Installation (you will need R >= 3.2.4 and possibly Rtools if you are on Windows):
+## Installation
 ```coffee
+## You will need to install the latest R version. You will also need Rtools if
+## running Windows.
 install.packages("devtools")
 devtools::install_github("gustavobio/brclimate")
 ```
@@ -68,7 +69,8 @@ nearest_stations(lat = -22.41, long = -42.01, source = "both")
 706  32656    RJ Santo Antonio de Padua -21.533 -42.183   inpe  99.13623
 1208 83698    RJ                CAMPOS  -21.750 -41.330  inmet 101.46529
 ...
-
+```
+```coffee
 nearest_stations(lat = -22.41, long = -42.01, source = "inpe")
        ID state               locality     lat    long source  distance
 705 31956    RJ   Santa Maria Madalena -21.953 -42.005   inpe  50.81869
@@ -77,7 +79,8 @@ nearest_stations(lat = -22.41, long = -42.01, source = "inpe")
 706 32656    RJ Santo Antonio de Padua -21.533 -42.183   inpe  99.13623
 433 32510    MG             Leopoldina -21.468 -42.723   inpe 127.98307
 695 69151    RJ      Baia de Guanabara -22.891 -43.145   inpe 128.16467
-
+```
+```coffee
 nearest_stations(lat = -22.41, long = -42.01, source = "inmet")
         ID state                locality    lat   long source distance
 1209 83718    RJ               CORDEIRO  -22.01 -42.35  inmet  56.5983
@@ -91,27 +94,29 @@ nearest_stations(lat = -22.41, long = -42.01, source = "inmet")
 Get the data:
 ```coffee
 inpe_station_data(station_id = 31973, start_date = "2005/01/01", end_date  = "2007/02/02")
-      Data     Hora Bateria ContAguaSolo100 ContAguaSolo200 ContAguaSolo400 CorrPSol DirVelVentoMax
-252 2005-01-01 00:00:00    12.5            0.45            0.48            0.48        0            150
-251 2005-01-01 03:00:00    12.5            0.45            0.48            0.48        0            150
-250 2005-01-01 06:00:00    12.5            0.45            0.48            0.48        0            150
-249 2005-01-01 09:00:00                                       0                                        
-248 2005-01-01 12:00:00    12.5            0.45            0.48            0.48        0            150
-247 2005-01-01 15:00:00    12.5            0.45            0.48            0.48        0            150
-    DirVento Pluvio PressaoAtm RadSolAcum TempAr TempMax TempMin TempSolo100 TempSolo200 TempSolo400
-252      140      0        929          0   16.5    33.5    10.5          22          23          23
-251      170      0        928          0     16    33.5    10.5          22          23          23
-250      140      0        929          0   16.5    33.5    10.5          22          23          23
-249      140      0        929          0   16.5                                                   0
-248      140      0        929          0   16.5    33.5    10.5          22          23          23
-247      140      0        929          0   16.5    33.5    10.5          22          23          23
-    UmidInt UmidRel VelVento10m VelVentoMax
-252       0      76         1.6         6.2
-251       0      84         2.9         6.2
-250       0      76         1.6         6.2
-249              76         1.6            
-248       0      76         1.6         6.2
-247       0      76         1.6         6.2
+          Data     Hora Bateria ContAguaSolo100 ContAguaSolo200 ContAguaSolo400 CorrPSol DirVelVentoMax DirVento Pluvio PressaoAtm RadSolAcum TempAr TempMax TempMin TempSolo100 TempSolo200 TempSolo400 UmidInt UmidRel VelVento10m VelVentoMax
+252 2005-01-01 00:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+251 2005-01-01 03:00:00    12.5            0.45            0.48            0.48        0            150      170      0        928          0   16.0    33.5    10.5          22          23          23       0      84         2.9         6.2
+250 2005-01-01 06:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+249 2005-01-01 09:00:00      NA              NA            0.00              NA       NA             NA      140      0        929          0   16.5      NA      NA          NA          NA           0      NA      76         1.6          NA
+248 2005-01-01 12:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+247 2005-01-01 15:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+246 2005-01-01 18:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+245 2005-01-01 21:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+244 2005-01-02 00:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+243 2005-01-02 03:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+242 2005-01-02 06:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+241 2005-01-02 09:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+240 2005-01-02 12:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+239 2005-01-02 15:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+238 2005-01-02 18:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+237 2005-01-02 21:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+236 2005-01-03 00:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+235 2005-01-03 03:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+234 2005-01-03 06:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+233 2005-01-03 09:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+232 2005-01-03 12:00:00    12.5            0.45            0.48            0.48        0            150      140      0        929          0   16.5    33.5    10.5          22          23          23       0      76         1.6         6.2
+231 2005-01-03 15:00:00    12.5            0.45            0.48            0.48        0            150      170      0        928          0   16.0    33.5    10.5          22          23          23       0      84         2.9         6.2
 ```
 
 ```coffee
