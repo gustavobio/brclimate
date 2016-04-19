@@ -32,6 +32,7 @@ inpe_stations()
 1002 32619    TO                  Xambioa
 ```
 
+List all INMET climate stations:
 ```coffee
 inmet_stations(username, password)
     ID      locality state    lat   long
