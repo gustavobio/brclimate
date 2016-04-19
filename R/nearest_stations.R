@@ -5,7 +5,7 @@
 #' @param source "inpe", "inmet", or "both" (default).
 #' @return A data frame ordered by the distances to the stations.
 #' @export
-nearest_station <- function(lat = -22.410259, long = -47.560156, source = "both") {
+nearest_stations <- function(lat = -22.410259, long = -47.560156, source = "both") {
   distances <- apply(stations[, c("lat", "long")], 1, function(x) get_distances(lat, long, x[1], x[2]))
   source <- match.arg(source, choices = c("both", "inpe", "inmet"))
   ordered_stations <- data.frame(stations, distance = distances)
