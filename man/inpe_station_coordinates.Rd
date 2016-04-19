@@ -2,8 +2,10 @@
 % Please edit documentation in R/get_coordinates.R
 \name{inpe_station_coordinates}
 \alias{inpe_station_coordinates}
-\title{Get the geographical coordinates of a climate station (PCD)}
+\title{Get the geographical coordinates of a climate station}
 \usage{
+inpe_station_coordinates(station_id = 31973)
+
 inpe_station_coordinates(station_id = 31973)
 }
 \arguments{
@@ -13,6 +15,6 @@ inpe_station_coordinates(station_id = 31973)
 A named numeric vector
 }
 \description{
-Get the geographical coordinates of a climate station (PCD)
+Get the geographical coordinates of a climate station
 }
 

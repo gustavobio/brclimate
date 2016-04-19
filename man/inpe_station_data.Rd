@@ -2,22 +2,22 @@
 % Please edit documentation in R/get_climate.R
 \name{inpe_station_data}
 \alias{inpe_station_data}
-\title{Scrape (harvest from the web) climate data from stations in Brazil.}
+\title{Get climate data from stations INPE}
 \usage{
 inpe_station_data(station_id = 31973, start_date = "2005/01/01",
   end_date = "2005/02/02")
 }
 \arguments{
-\item{station_id}{A numeric vector with the station id}
+\item{station_id}{A numeric vector with the station id.}
 
-\item{start_date}{Start date}
+\item{start_date}{Start date.}
 
-\item{end_date}{End date (Maximum of one year between start and end dates)}
+\item{end_date}{End date (Maximum of one year between start and end dates).}
 }
 \value{
 A data frame containing the climate data and attributes.
 }
 \description{
-Scrape (harvest from the web) climate data from stations in Brazil.
+Get climate data from stations INPE
 }
 

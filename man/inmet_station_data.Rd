@@ -8,17 +8,17 @@ inmet_station_data(station_id = 83726, start_date = "01/01/1901",
   end_date = "13/04/2016", interval = "monthly", username, password)
 }
 \arguments{
-\item{station_id}{The ID of the station}
+\item{station_id}{The ID of the station.}
 
-\item{start_date}{Start date}
+\item{start_date}{Start date.}
 
-\item{end_date}{End date}
+\item{end_date}{End date.}
 
-\item{username}{INMET username}
+\item{username}{INMET username.}
 
-\item{password}{INMET password}
+\item{password}{INMET password.}
 
-\item{monthly}{Daily or Monthy data?}
+\item{intervale}{daily or monthly (default) data?}
 }
 \description{
 Get climate data from INMET

@@ -1,11 +1,10 @@
-#' Get the distance in kilometers from geographical coordinates
+#' Get the distance in kilometers between two points.
 #'
 #' @param lat1 Latitude in decimals
 #' @param long1 Longitude in decimals
 #' @param lat2 Latitude in decimals
 #' @param long2 Longitude in decimals
 #' @return A numeric vector with the distance in kilometers.
-#' @export
 get_distances <- function(lat1, long1, lat2, long2) {
   deg2rad <- function(deg) {
     return(deg * (pi/180))

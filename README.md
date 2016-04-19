@@ -1,9 +1,9 @@
 # brclimate
-Scrape Brazilian climate data
+Scrape Brazilian climate data from INPE and INMET.
 
-This package includes a set of tools for scraping climate data from INPE http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php and INMET http://www.inmet.gov.br/portal/
+This R package includes a set of tools for scraping climate data from INPE http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php and INMET http://www.inmet.gov.br/portal/.
 
-## Installation (you will need R >= 3.2.4 and Rtools):
+## Installation (you will need R >= 3.2.4 and possibly Rtools if you are on Windows):
 ```coffee
 install.packages("devtools")
 devtools::install_github("gustavobio/brclimate")
@@ -11,7 +11,7 @@ devtools::install_github("gustavobio/brclimate")
 
 ## Usage:
 
-List all climate stations:
+List all INPE climate stations:
 ```coffee
 get_pcds()
      ID state             locality

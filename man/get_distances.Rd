@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_distances.R
 \name{get_distances}
 \alias{get_distances}
-\title{Get the distance in kilometers from geographical coordinates}
+\title{Get the distance in kilometers between two points.}
 \usage{
 get_distances(lat1, long1, lat2, long2)
 }
@@ -19,6 +19,6 @@ get_distances(lat1, long1, lat2, long2)
 A numeric vector with the distance in kilometers.
 }
 \description{
-Get the distance in kilometers from geographical coordinates
+Get the distance in kilometers between two points.
 }
 

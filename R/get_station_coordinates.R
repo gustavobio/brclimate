@@ -1,4 +1,4 @@
-#' Get the geographical coordinates of an INPE climate station
+#' Get the geographical coordinates of a climate station
 #'
 #' @param station_id A numeric vector with the station id
 #' @return A named numeric vector
@@ -23,6 +23,7 @@ inpe_station_coordinates <- function(station_id = 31973) {
   coordinates
 }
 
+#' @rdname inpe_station_coordinates
 inpe_station_coordinates <- function(station_id = 31973) {
   calendar_page <- rvest::html_session(paste("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = ""))
   source_code <- httr::content(calendar_page$response, as = "text")

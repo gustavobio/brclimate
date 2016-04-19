@@ -2,17 +2,17 @@
 % Please edit documentation in R/get_timeframe.R
 \name{inpe_station_period}
 \alias{inpe_station_period}
-\title{Get the span of the data of a climate station (PCD).}
+\title{Get the span of the data of an INPE climate station.}
 \usage{
 inpe_station_period(station_id = 31973)
 }
 \arguments{
-\item{station_id}{A numeric vector with the station id}
+\item{station_id}{A numeric vector with the station id.}
 }
 \value{
-A character vector
+A character vector.
 }
 \description{
-Get the span of the data of a climate station (PCD).
+Get the span of the data of an INPE climate station.
 }
 

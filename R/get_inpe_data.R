@@ -1,12 +1,12 @@
 #' Get climate data from stations INPE
 #'
-#' @param station_id A numeric vector with the station id
-#' @param start_date Start date
-#' @param end_date End date (Maximum of one year between start and end dates)
+#' @param station_id A numeric vector with the station id.
+#' @param start_date Start date.
+#' @param end_date End date (Maximum of one year between start and end dates).
 #' @return A data frame containing the climate data and attributes.
 #' @export
 inpe_station_data <- function(station_id = 31973, start_date = "2005/01/01", end_date  = "2005/02/02") {
-  if (!station_id %in% pcds$ID) stop("Couldn't find any station with the provided ID.")
+  if (!station_id %in% stations$ID[stations$source %in% "inpe"]) stop("Couldn't find any station with the provided ID.")
   start_date <- as.Date(start_date)
   end_date <- as.Date(end_date)
   station_timeframe <- inpe_station_period(station_id = station_id)
@@ -65,8 +65,6 @@ inpe_station_data <- function(station_id = 31973, start_date = "2005/01/01", end
     climate <- do.call(cbind.data.frame, list(lapply(climate, type.convert, as.is = TRUE), stringsAsFactors = FALSE))
     structure(climate, fields = fields)
   }
-  print(start_dates)
-  print(end_dates)
   climate <- do.call(rbind.data.frame,
                      mapply(get_partial_climate, start_date = start_dates, end_date = end_dates, SIMPLIFY = FALSE))
   climate[order(climate$Data, climate$Hora, decreasing = FALSE), ]
