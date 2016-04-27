@@ -59,6 +59,6 @@ inmet_stations <- function(username, password, states = "all") {
   if ("all" %in% states) {
     return(stations)
   } else {
-    return(stations[stations$state %in% touppser(states), ])
+    return(stations[stations$state %in% toupper(states), ])
   }
 }
