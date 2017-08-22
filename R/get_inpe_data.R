@@ -44,7 +44,7 @@ inpe_station_data <- function(station_id = 31973, start_date = "2005/01/01", end
                                         ano_final = format(end_date, "%Y")
     )
     r <- rvest::submit_form(calendar_page, form_completed)
-    if (httr::headers(r)$`content-type` != "application/x-msexcel") {
+    if (httr::headers(r)$`content-type` != "application/vnd.ms-excel; charset=utf-8") {
       message("No data for the selected period.")
       return(NA)
     }
