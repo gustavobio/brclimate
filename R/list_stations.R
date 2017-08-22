@@ -40,8 +40,7 @@ inmet_stations <- function(username, password, states = "all") {
     rvest::html_text()
   raw_page <- readLines(textConnection(response), warn = FALSE)
   raw_names <- raw_page[grep("font", raw_page)]
-  stations <- regmatches(raw_names, regexec("<b>.+b>", raw_names))
-  stations <- gsub("[<b>|<///b>]", "", stations)
+  stations <- regmatches(raw_names, regexec("(?<=<b>).+?(?=<br \\/>)", raw_names, perl = TRUE))
   stations <- gsub("Estação: ", "", stations)
   coordinates <- regmatches(raw_names, regexec("Latitude:.*altitude", raw_names))
   coordinates <- gsub("<br \\/>", "", coordinates)
