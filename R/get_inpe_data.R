@@ -32,7 +32,7 @@ inpe_station_data <- function(station_id = 31973, start_date = "2005/01/01", end
   # 12 month intervals when needed.
   get_partial_climate <- function(start_date, end_date) {
     calendar_page <- rvest::html_session(
-      paste("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = "")
+      paste("http://sinda.crn.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = "")
     )
     form <- calendar_page %>% rvest::html_node("form") %>% html_form()
     form_completed <- rvest::set_values(form,

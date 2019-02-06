@@ -4,7 +4,7 @@
 #' @return A character vector.
 #' @export
 inpe_station_period <- function(station_id = 31973) {
-  dates <- rvest::html_session(paste("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = "")) %>%
+  dates <- rvest::html_session(paste("http://sinda.crn.inpe.br/PCD/SITE/novo/site/historico/passo2.php?id=", station_id, sep = "")) %>%
     rvest::html_nodes(xpath = "//form//b") %>%
     rvest::html_text()
   if (length(dates) == 0L) {

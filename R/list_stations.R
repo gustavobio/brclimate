@@ -7,7 +7,7 @@
 #' @export
 #' @import rvest
 inpe_stations <- function(states = "all") {
-  calendar_page <- rvest::html_session("http://sinda.crn2.inpe.br/PCD/SITE/novo/site/historico/index.php")
+  calendar_page <- rvest::html_session("http://sinda.crn.inpe.br/PCD/SITE/novo/site/historico/index.php")
   stations <- calendar_page %>%
     rvest::html_nodes(xpath = "//form//option") %>%
     rvest::html_text()
@@ -41,7 +41,7 @@ inmet_stations <- function(username, password, states = "all") {
   raw_page <- readLines(textConnection(response), warn = FALSE)
   raw_names <- raw_page[grep("font", raw_page)]
   stations <- regmatches(raw_names, regexec("(?<=<b>).+?(?=<br \\/>)", raw_names, perl = TRUE))
-  stations <- gsub("Estação: ", "", stations)
+  stations <- gsub("Estacao: ", "", stations)
   coordinates <- regmatches(raw_names, regexec("Latitude:.*altitude", raw_names))
   coordinates <- gsub("<br \\/>", "", coordinates)
   coordinates <- gsub(" altitude", "", coordinates)
