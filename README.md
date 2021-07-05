@@ -1,6 +1,6 @@
 # brclimate
 
-This R package includes a set of tools for scraping climate data from INPE http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php and INMET http://www.inmet.gov.br/portal/.
+This R package includes a set of tools for scraping climate data from INPE http://sinda.crn2.inpe.br/PCD/SITE/novo/site/index.php and INMET http://www.inmet.gov.br/portal/. The code here can become outdated quickly due to changes in the source, so please fork it and submit a pull request if you fix anything locally.
 
 ## Installation
 ```coffee
